@@ -1,10 +1,20 @@
-create table user
+CREATE TABLE user
 (
-    id       varchar(30) primary key,
-    username varchar(30) unique,
-    password varchar(30) not null,
-    nickname varchar(40) not null
+    id       VARCHAR(30) PRIMARY KEY,
+    username VARCHAR(30) UNIQUE,
+    password VARCHAR(30) NOT NULL,
+    nickname VARCHAR(40) NOT NULL
 );
 
-insert into user (id, username, password, nickname)
-values ('D100000001', 'test', '123456', '宇宙无敌暴龙神');
+INSERT INTO user (id, username, password, nickname)
+VALUES ('D100000001', 'test', '123456', '宇宙无敌暴龙神');
+
+CREATE TABLE article
+(
+    id        VARCHAR(30) PRIMARY KEY,
+    title     VARCHAR(200) NOT NULL,
+    content   TEXT,
+    author_id VARCHAR(30)
+);
+ALTER TABLE article
+    ADD CONSTRAINT fk_article_user_id FOREIGN KEY (author_id) REFERENCES user (id);
