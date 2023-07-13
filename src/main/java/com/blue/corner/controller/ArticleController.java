@@ -4,14 +4,12 @@ import com.blue.corner.model.Article;
 import com.blue.corner.model.User;
 import com.blue.corner.model.VO.ArticleVO;
 import com.blue.corner.service.ArticleService;
-import com.blue.corner.service.UserService;
 import com.blue.corner.util.IDGenerator;
 import com.blue.corner.util.TokenUtil;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 

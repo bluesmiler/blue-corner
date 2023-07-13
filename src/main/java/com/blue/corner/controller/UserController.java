@@ -4,9 +4,10 @@ import com.blue.corner.model.User;
 import com.blue.corner.service.UserService;
 import com.blue.corner.util.TokenUtil;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
