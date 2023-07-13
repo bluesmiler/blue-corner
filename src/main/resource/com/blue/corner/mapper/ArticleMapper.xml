@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blue.corner.mapper.ArticleMapper">
+    <insert id="addArticle">
+        insert into article (id, title, content, author_id)
+        values (#{id}, #{title}, #{content}, #{authorId});
+    </insert>
+</mapper>

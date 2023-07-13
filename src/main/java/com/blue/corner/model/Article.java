@@ -7,5 +7,6 @@ public class Article {
     private String id;
     private String title;
     private String content;
-    private String authorId;
+    private Integer authorId;
+    private Integer status;
 }

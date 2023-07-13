@@ -1,6 +1,8 @@
 package com.blue.corner.service.impl;
 
+import com.blue.corner.mapper.ArticleMapper;
 import com.blue.corner.mapper.UserMapper;
+import com.blue.corner.model.Article;
 import com.blue.corner.model.User;
 import com.blue.corner.service.UserService;
 import org.springframework.stereotype.Service;
@@ -16,4 +18,9 @@ public class UserServiceImpl implements UserService {
     public User login(User user) {
         return userMapper.getUserByUP(user.getUsername(), user.getPassword());
     }
+
+    public void register(User user){
+        userMapper.addUser(user);
+    }
+
 }

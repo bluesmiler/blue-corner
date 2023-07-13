@@ -3,10 +3,9 @@ package com.blue.corner.model;
 import lombok.Data;
 
 @Data
-public class User {
+public class Like {
     private Integer id;
-    private String username;
-    private String password;
-    private String nickname;
+    private Integer userId;
+    private String articleId;
     private Integer status;
 }
