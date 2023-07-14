@@ -1,5 +1,6 @@
 package com.blue.corner.service.impl;
 
+import com.blue.corner.exception.SqlException;
 import com.blue.corner.mapper.ArticleMapper;
 import com.blue.corner.model.Article;
 import com.blue.corner.service.ArticleService;
@@ -15,6 +16,10 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public void addArticle(Article article) {
-        articleMapper.addArticle(article);
+        try {
+            articleMapper.addArticle(article);
+        }catch (RuntimeException e){
+            throw new SqlException("Do not publish duplicate articles!");
+        }
     }
 }

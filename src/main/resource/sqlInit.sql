@@ -19,7 +19,8 @@ CREATE TABLE article
     title     VARCHAR(200) NOT NULL,
     content   TEXT         NOT NULL,
     author_id INT(10)      NOT NULL,
-    status    TINYINT(1)   NOT NULL DEFAULT 1
+    status    TINYINT(1)   NOT NULL DEFAULT 1,
+    UNIQUE (author_id, title)
 );
 ALTER TABLE article
     ADD CONSTRAINT fk_article_user FOREIGN KEY (author_id) REFERENCES user (id);

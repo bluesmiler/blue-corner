@@ -1,15 +1,13 @@
 package com.blue.corner.controller;
 
+import com.blue.corner.common.Result;
 import com.blue.corner.model.Article;
 import com.blue.corner.model.User;
-import com.blue.corner.model.VO.ArticleVO;
 import com.blue.corner.service.ArticleService;
 import com.blue.corner.util.IDGenerator;
-import com.blue.corner.util.TokenUtil;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.blue.corner.util.TokenManager;
+import org.springframework.web.bind.annotation.*;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,18 +19,17 @@ public class ArticleController {
     private ArticleService articleService;
 
     @PostMapping("/upload")
-    public String upload(HttpServletRequest request, @RequestBody Article article) {
-        User user = TokenUtil.getUser(request);
+    public Result upload(HttpServletRequest request, @RequestBody Article article) {
+        User user = TokenManager.getUser(request);
         String articleID = IDGenerator.getArticleID(user);
         article.setId(articleID);
         article.setAuthorId(user.getId());
-
         articleService.addArticle(article);
-        return new ArticleVO(article, user).toString();
+        return new Result<>();
     }
 
     @PostMapping("/doLike")
-    public void doLike(){
+    public void doLike() {
 
     }
 }
