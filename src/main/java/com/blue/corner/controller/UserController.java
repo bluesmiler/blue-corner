@@ -1,9 +1,7 @@
 package com.blue.corner.controller;
 
 import com.blue.corner.common.Result;
-import com.blue.corner.constant.CodeEnum;
-import com.blue.corner.exception.AuthenticationException;
-import com.blue.corner.exception.SqlException;
+import com.blue.corner.exception.ParamException;
 import com.blue.corner.model.User;
 import com.blue.corner.service.UserService;
 import com.blue.corner.util.TokenManager;
@@ -24,6 +22,12 @@ public class UserController {
 
     @PostMapping("/login")
     public Result login(@RequestBody User user) {
+        if (user.getUsername()==null){
+            throw new ParamException("username can not empty");
+        }
+        if (user.getPassword()==null){
+            throw new ParamException("password can not empty");
+        }
         User login = userService.login(user);
         String token = TokenManager.saveUser(login);
         return new Result<>().setData(token);

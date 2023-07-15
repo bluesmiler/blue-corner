@@ -2,9 +2,9 @@ package com.blue.corner.exception;
 
 import com.blue.corner.constant.CodeEnum;
 
-public class SqlException extends BaseException {
+public class ParamException extends BaseException{
 
-    public SqlException(String massage) {
+    public ParamException(String massage) {
         super(CodeEnum.FAIL.getCode(), massage);
     }
 }
