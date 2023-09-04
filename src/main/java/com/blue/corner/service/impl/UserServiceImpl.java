@@ -6,7 +6,6 @@ import com.blue.corner.mapper.UserMapper;
 import com.blue.corner.model.User;
 import com.blue.corner.service.UserService;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 
 @Service

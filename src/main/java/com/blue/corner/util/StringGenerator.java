@@ -1,23 +1,12 @@
 package com.blue.corner.util;
 
-import com.blue.corner.model.User;
 import java.util.Random;
 
-public class IDGenerator {
+public class StringGenerator {
 
     private static final String strAll = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
     private static final String numberAll = "0123456789";
-
-    /**
-     * @param author
-     * @return
-     * @Description 根据author生成article的id
-     */
-    public static String getArticleID(User author) {
-        String prefix = author.getUsername() + "@";
-        return prefix + getRandom(numberAll, 8);
-    }
 
     /**
      * @param range
